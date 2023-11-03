@@ -10,18 +10,27 @@ int main()
     setup_i2c_gpio();
     lcd_init();
 
-    char *messageToWrite[] = {
-        "RP2040 by", "Raspberry Pi",
-        "A brand new", "microcontroller",
-        "Twin core M0", "Full C SDK"};
+    char *multiScreenMessage[] = {
+        "This is a", "multi screen",
+        "message", "with 4 lines"};
 
-    int messageSize = sizeof(messageToWrite) / sizeof(messageToWrite[0]);
-    int messageShowTimeMs = 5000;
+    int multiLineMessageSize = sizeof(multiScreenMessage) / sizeof(multiScreenMessage[0]);
+    int screenShowTime = 1000;
 
-    char* lineOneMessage = "line 1";
-    char* lineTwoMessage = "line 2";
+    char *twoLineMessage[] = {"line 1", "line 2"};
 
-    lcd_write_one_line_message(lineOneMessage,0);
-    lcd_write_one_line_message(lineTwoMessage,1);
+    char *lineOneMessage = "line 1";
+    char *lineTwoMessage = "line 2";
+
+    while (1)
+    {
+        lcd_write_multi_screen_message(multiScreenMessage, multiLineMessageSize, screenShowTime, LEFT_ALIGN);
+        sleep_ms(1000);
+        lcd_write_multi_screen_message(multiScreenMessage, multiLineMessageSize, screenShowTime, CENTER_ALIGN);
+        sleep_ms(1000);
+        lcd_write_multi_screen_message(multiScreenMessage, multiLineMessageSize, screenShowTime, RIGHT_ALIGN);
+        sleep_ms(1000);
+    }
+
 #endif
 }

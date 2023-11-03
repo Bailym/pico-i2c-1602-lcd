@@ -142,22 +142,26 @@ void lcd_init()
     lcd_clear();
 }
 
-static void get_message_size(char *messageToWrite[], int *messageSize)
+static void set_cursor_for_alignment(int messageLength, int lineNumber, tTextAlignment textAlignment)
 {
-    if (messageToWrite != NULL)
+    switch (textAlignment)
     {
-        for (int i = 0; messageToWrite[i] != NULL; i++)
-        {
-            (*messageSize)++;
-        }
+    case LEFT_ALIGN:
+        lcd_set_cursor(lineNumber, 0);
+        break;
+    case CENTER_ALIGN:
+        lcd_set_cursor(lineNumber, (MAX_CHARS - messageLength) / 2);
+        break;
+    case RIGHT_ALIGN:
+        lcd_set_cursor(lineNumber, MAX_CHARS - messageLength);
+        break;
+    default:
+        break;
     }
 }
 
-void lcd_write_multi_screen_message(char *messageToWrite[], int delayBetweenScreens)
+void lcd_write_multi_screen_message(char *messageToWrite[], int messageSize, int delayBetweenScreens, tTextAlignment textAlignment)
 {
-    int messageSize = 0;
-    get_message_size(messageToWrite, &messageSize);
-
     // Take two strings at a time from the messageToWrite array
     for (int i = 0; i < messageSize; i += MAX_LINES)
     {
@@ -165,8 +169,8 @@ void lcd_write_multi_screen_message(char *messageToWrite[], int delayBetweenScre
         for (int lineNumber = 0; lineNumber < MAX_LINES; lineNumber++)
         {
             char *currentLineText = messageToWrite[i + lineNumber];
-            int cursorPositionCenterAligned = (MAX_CHARS - strlen(currentLineText)) / 2;
-            lcd_set_cursor(lineNumber, cursorPositionCenterAligned);
+            int currentLineMessageLength = strlen(currentLineText);
+            set_cursor_for_alignment(currentLineMessageLength, lineNumber, textAlignment);
             lcd_string(currentLineText);
         }
         sleep_ms(delayBetweenScreens);
@@ -174,22 +178,22 @@ void lcd_write_multi_screen_message(char *messageToWrite[], int delayBetweenScre
     }
 }
 
-void lcd_write_two_line_message(char *messageToWrite[2])
+void lcd_write_two_line_message(char *messageToWrite[2], tTextAlignment textAlignment)
 {
     lcd_clear();
 
     for (int lineNumber = 0; lineNumber < MAX_LINES; lineNumber++)
     {
         char *currentLineText = messageToWrite[lineNumber];
-        int cursorPositionCenterAligned = (MAX_CHARS - strlen(currentLineText)) / 2;
-        lcd_set_cursor(lineNumber, cursorPositionCenterAligned);
+        int currentLineMessageLength = strlen(currentLineText);
+        set_cursor_for_alignment(currentLineMessageLength, lineNumber, textAlignment);
         lcd_string(currentLineText);
     }
 }
 
-void lcd_write_one_line_message(char *messageToWrite, int lineNumber)
+void lcd_write_one_line_message(char *messageToWrite, int lineNumber, tTextAlignment textAlignment)
 {
-    int cursorPositionCenterAligned = (MAX_CHARS - strlen(messageToWrite)) / 2;
-    lcd_set_cursor(lineNumber, cursorPositionCenterAligned);
+    int messageLength = strlen(messageToWrite);
+    set_cursor_for_alignment(messageLength, lineNumber, textAlignment);
     lcd_string(messageToWrite);
 }
