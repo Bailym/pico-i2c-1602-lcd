@@ -155,6 +155,9 @@ static void set_cursor_for_alignment(int messageLength, int lineNumber, tTextAli
     case RIGHT_ALIGN:
         lcd_set_cursor(lineNumber, MAX_CHARS - messageLength);
         break;
+    case LEFT_ALIGN_MENU_SELECTED_ITEM:
+        lcd_set_cursor(lineNumber, 1);
+        break;
     default:
         break;
     }

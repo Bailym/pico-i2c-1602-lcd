@@ -20,6 +20,7 @@ pico_sdk_init()
 add_executable(MAIN_EXECUTABLE 
     ${PROJECT_SOURCE_DIR}/main.c
     ${LCD_LIBRARY_DIR}/pico-lcd.c
+    ${LCD_LIBRARY_DIR}/scroll-menu.c
     ${I2C_DIR}/i2c.c)
 
 # Directories to include in build

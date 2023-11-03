@@ -12,6 +12,7 @@ typedef enum
 typedef enum tTextAlignment
 {
     LEFT_ALIGN,
+    LEFT_ALIGN_MENU_SELECTED_ITEM,
     CENTER_ALIGN,
     RIGHT_ALIGN
 } tTextAlignment;

@@ -1,5 +1,6 @@
 #include "i2c.h"
 #include "pico-lcd.h"
+#include "scroll-menu.h"
 #include "hardware/i2c.h"
 
 int main()
@@ -22,13 +23,20 @@ int main()
     char *lineOneMessage = "line 1";
     char *lineTwoMessage = "line 2";
 
+    tScrollMenuItem menuItems[] =
+        {
+            {0, "Menu Item 1"},
+            {1, "Menu Item 2"},
+            {2, "Menu Item 3"},
+            {3, "Menu Item 4"},
+        };
+
+    tScrollMenu scrollMenu;
+    InitMenu(&scrollMenu, menuItems, 4);
+
     while (1)
     {
-        lcd_write_multi_screen_message(multiScreenMessage, multiLineMessageSize, screenShowTime, LEFT_ALIGN);
-        sleep_ms(1000);
-        lcd_write_multi_screen_message(multiScreenMessage, multiLineMessageSize, screenShowTime, CENTER_ALIGN);
-        sleep_ms(1000);
-        lcd_write_multi_screen_message(multiScreenMessage, multiLineMessageSize, screenShowTime, RIGHT_ALIGN);
+        ScrollMenu(&scrollMenu, SCROLL_UP);
         sleep_ms(1000);
     }
 
