@@ -131,7 +131,7 @@
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build/generated/pico_base"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build/generated/pico_base"
 				},
 				{
 					"backtrace" : 8,

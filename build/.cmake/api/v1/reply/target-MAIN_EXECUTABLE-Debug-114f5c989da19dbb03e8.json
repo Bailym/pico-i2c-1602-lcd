@@ -260,11 +260,11 @@
 			[
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/i2c"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/i2c"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/lcd-library"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/lcd-library"
 				},
 				{
 					"backtrace" : 2,
@@ -280,7 +280,7 @@
 				},
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build/generated/pico_base"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build/generated/pico_base"
 				},
 				{
 					"backtrace" : 2,
@@ -635,11 +635,11 @@
 			[
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/i2c"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/i2c"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/lcd-library"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/lcd-library"
 				},
 				{
 					"backtrace" : 2,
@@ -655,7 +655,7 @@
 				},
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build/generated/pico_base"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build/generated/pico_base"
 				},
 				{
 					"backtrace" : 2,
@@ -1000,11 +1000,11 @@
 			[
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/i2c"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/i2c"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/lcd-library"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/lcd-library"
 				},
 				{
 					"backtrace" : 2,
@@ -1020,7 +1020,7 @@
 				},
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build/generated/pico_base"
+					"path" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build/generated/pico_base"
 				},
 				{
 					"backtrace" : 2,

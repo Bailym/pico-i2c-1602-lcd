@@ -195,7 +195,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build"
+			"value" : "c:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -279,10 +279,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/gcc-arm-none-eabi/bin/arm-none-eabi-g++.exe"
 		},
 		{
@@ -407,10 +407,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe"
 		},
 		{
@@ -679,7 +679,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -739,7 +739,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd"
+			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1319,7 +1319,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build"
+			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build"
 		},
 		{
 			"name" : "PICO-LCD_IS_TOP_LEVEL",
@@ -1343,7 +1343,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd"
+			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd"
 		},
 		{
 			"name" : "PICO_BOARD",
@@ -1499,7 +1499,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : " C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/cmsis C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2040/hardware_regs C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/cmsis C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2040/hardware_regs C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/cmsis C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2040/hardware_regs C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/cmsis C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2040/hardware_regs C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/cmsis C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2040/hardware_regs"
+			"value" : " C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/cmsis C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2040/hardware_regs"
 		},
 		{
 			"name" : "PICO_DOXYGEN_PATHS",
@@ -1754,18 +1754,6 @@
 			"value" : "84382cac656f219509a0e04b646265e1"
 		},
 		{
-			"name" : "_Python3_Interpreter_REASON_FAILURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Interpreter reason failure"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
 			"name" : "_Python3_NumPy_REASON_FAILURE",
 			"properties" : 
 			[
@@ -1799,7 +1787,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build/pico-sdk"
+			"value" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build/pico-sdk"
 		},
 		{
 			"name" : "pico_sdk_IS_TOP_LEVEL",

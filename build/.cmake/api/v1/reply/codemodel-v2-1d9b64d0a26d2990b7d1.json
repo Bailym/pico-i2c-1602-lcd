@@ -1138,14 +1138,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MAIN_EXECUTABLE::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MAIN_EXECUTABLE-Debug-54a71d9ccb6585f6cd34.json",
+					"jsonFile" : "target-MAIN_EXECUTABLE-Debug-114f5c989da19dbb03e8.json",
 					"name" : "MAIN_EXECUTABLE",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 43,
 					"id" : "bs2_default::@bc554eaed616d198a22d",
-					"jsonFile" : "target-bs2_default-Debug-6e08a8172436d5a0f5a2.json",
+					"jsonFile" : "target-bs2_default-Debug-700680acf813786e3e14.json",
 					"name" : "bs2_default",
 					"projectIndex" : 1
 				},
@@ -1190,8 +1190,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd/build",
-		"source" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-lcd"
+		"build" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd/build",
+		"source" : "C:/Users/bm39/Documents/Pico-v1.5.1/pico-i2c-1602-lcd"
 	},
 	"version" : 
 	{
