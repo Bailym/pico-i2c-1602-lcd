@@ -2,38 +2,8 @@
 #include "pico-lcd.h"
 #include "scroll-menu.h"
 #include "hardware/i2c.h"
-
-void DrawnMainMenu();
-void DrawSubMenu();
-
-tScrollMenu mainMenu = {};
-tScrollMenu subMenu = {};
-
-tScrollMenuItem mainMenuItems[] =
-    {
-        {0, "Menu Item 1", NULL},
-        {1, "Menu Item 2", NULL},
-        {2, "Menu Item 3", NULL},
-        {3, "Go To Sub Menu", DrawSubMenu},
-};
-
-tScrollMenuItem subMenuItems[] =
-    {
-        {0, "Sub Menu Item 1", NULL},
-        {1, "Sub Menu Item 2", NULL},
-        {2, "Sub Menu Item 3", NULL},
-        {3, "Back", DrawnMainMenu},
-};
-
-void DrawnMainMenu()
-{
-    InitMenu(&mainMenu, mainMenuItems, 4);
-}
-
-void DrawSubMenu()
-{
-    InitMenu(&subMenu, subMenuItems, 4);
-}
+#include "MainMenu.h"
+#include "SubMenu.h"
 
 int main()
 {
@@ -55,27 +25,27 @@ int main()
     char *lineOneMessage = "line 1";
     char *lineTwoMessage = "line 2";
 
-    DrawnMainMenu();
+    MainMenu_Draw();
 
     while (1)
     {
         sleep_ms(1000);
-        ScrollMenu(&mainMenu, SCROLL_DOWN);
+        MainMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        ScrollMenu(&mainMenu, SCROLL_DOWN);
+        MainMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        ScrollMenu(&mainMenu, SCROLL_DOWN);
+        MainMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        SelectMenuItem(&mainMenu);
+        MainMenu_Select();
 
         sleep_ms(1000);
-        ScrollMenu(&subMenu, SCROLL_DOWN);
+        SubMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        ScrollMenu(&subMenu, SCROLL_DOWN);
+        SubMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        ScrollMenu(&subMenu, SCROLL_DOWN);
+        SubMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        SelectMenuItem(&subMenu);
+        SubMenu_Select();
     }
 
 #endif
