@@ -37,6 +37,10 @@ target_link_libraries(PICO_I2C_1602_LCD_EXECUTABLE
     pico_stdlib 
     hardware_i2c)
 
+# Enable USB output, disable UART output
+pico_enable_stdio_usb(PICO_I2C_1602_LCD_EXECUTABLE 1)
+pico_enable_stdio_uart(PICO_I2C_1602_LCD_EXECUTABLE 0)
+
 # Create map/bin/hex file, etc.
 pico_add_extra_outputs(PICO_I2C_1602_LCD_EXECUTABLE)
 

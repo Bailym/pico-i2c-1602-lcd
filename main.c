@@ -4,14 +4,20 @@
 #include "hardware/i2c.h"
 #include "MainMenu.h"
 #include "SubMenu.h"
+#include <stdio.h>
 
 int main()
 {
+
 #if !defined(i2c_default) || !defined(PICO_DEFAULT_I2C_SDA_PIN) || !defined(PICO_DEFAULT_I2C_SCL_PIN)
 #warning i2c/lcd_1602_i2c example requires a board with I2C pins
 #else
+    
+    stdio_init_all();
     setup_i2c_gpio();
     lcd_init();
+
+    printf("Application started.\n");
 
     char *multiScreenMessage[] = {
         "This is a", "multi screen",
@@ -45,7 +51,7 @@ int main()
         sleep_ms(1000);
         SubMenu_Scroll(SCROLL_DOWN);
         sleep_ms(1000);
-        SubMenu_Select();
+        SubMenu_Select(); 
     }
 
 #endif
