@@ -1,8 +1,7 @@
 #include "scroll-menu.h"
 #include "pico-lcd.h"
 
-
-static void UpdateMenu(tScrollMenu *scrollMenu)
+void RedrawMenu(tScrollMenu *scrollMenu)
 {
     lcd_clear();
     int selectedMenuItemIndex = scrollMenu->selectedItemIndex;
@@ -24,7 +23,7 @@ void InitMenu(tScrollMenu *newScrollMenu, tScrollMenuItem menuItems[], int itemC
     newScrollMenu->itemCount = itemCount;
     newScrollMenu->menuItems = menuItems;
     newScrollMenu->selectedItemIndex = 0;
-    UpdateMenu(newScrollMenu);
+    RedrawMenu(newScrollMenu);
 }
 
 void ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection)
@@ -52,8 +51,16 @@ void ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection)
         }
     }
 
-    UpdateMenu(scrollMenu);
+    RedrawMenu(scrollMenu);
 }
 
+void SelectMenuItem(tScrollMenu *scrollMenu)
+{
+    int selectedMenuItemIndex = scrollMenu->selectedItemIndex;
+    tScrollMenuItem *selectedMenuItem = &scrollMenu->menuItems[selectedMenuItemIndex];
 
-
+    if (selectedMenuItem->onSelect != NULL)
+    {
+        selectedMenuItem->onSelect();
+    }
+}

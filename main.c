@@ -3,6 +3,38 @@
 #include "scroll-menu.h"
 #include "hardware/i2c.h"
 
+void DrawnMainMenu();
+void DrawSubMenu();
+
+tScrollMenu mainMenu = {};
+tScrollMenu subMenu = {};
+
+tScrollMenuItem mainMenuItems[] =
+    {
+        {0, "Menu Item 1", NULL},
+        {1, "Menu Item 2", NULL},
+        {2, "Menu Item 3", NULL},
+        {3, "Go To Sub Menu", DrawSubMenu},
+};
+
+tScrollMenuItem subMenuItems[] =
+    {
+        {0, "Sub Menu Item 1", NULL},
+        {1, "Sub Menu Item 2", NULL},
+        {2, "Sub Menu Item 3", NULL},
+        {3, "Back", DrawnMainMenu},
+};
+
+void DrawnMainMenu()
+{
+    InitMenu(&mainMenu, mainMenuItems, 4);
+}
+
+void DrawSubMenu()
+{
+    InitMenu(&subMenu, subMenuItems, 4);
+}
+
 int main()
 {
 #if !defined(i2c_default) || !defined(PICO_DEFAULT_I2C_SDA_PIN) || !defined(PICO_DEFAULT_I2C_SCL_PIN)
@@ -23,21 +55,27 @@ int main()
     char *lineOneMessage = "line 1";
     char *lineTwoMessage = "line 2";
 
-    tScrollMenuItem menuItems[] =
-        {
-            {0, "Menu Item 1"},
-            {1, "Menu Item 2"},
-            {2, "Menu Item 3"},
-            {3, "Menu Item 4"},
-        };
-
-    tScrollMenu scrollMenu;
-    InitMenu(&scrollMenu, menuItems, 4);
+    DrawnMainMenu();
 
     while (1)
     {
-        ScrollMenu(&scrollMenu, SCROLL_UP);
         sleep_ms(1000);
+        ScrollMenu(&mainMenu, SCROLL_DOWN);
+        sleep_ms(1000);
+        ScrollMenu(&mainMenu, SCROLL_DOWN);
+        sleep_ms(1000);
+        ScrollMenu(&mainMenu, SCROLL_DOWN);
+        sleep_ms(1000);
+        SelectMenuItem(&mainMenu);
+
+        sleep_ms(1000);
+        ScrollMenu(&subMenu, SCROLL_DOWN);
+        sleep_ms(1000);
+        ScrollMenu(&subMenu, SCROLL_DOWN);
+        sleep_ms(1000);
+        ScrollMenu(&subMenu, SCROLL_DOWN);
+        sleep_ms(1000);
+        SelectMenuItem(&subMenu);
     }
 
 #endif

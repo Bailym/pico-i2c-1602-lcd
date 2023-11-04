@@ -5,6 +5,7 @@ typedef struct
 {
     int itemIndex;
     char *itemText;
+    void (*onSelect)(void);
 } tScrollMenuItem;
 
 typedef struct
@@ -22,5 +23,6 @@ typedef enum
 
 void InitMenu(tScrollMenu *newScrollMenu, tScrollMenuItem menuItems[], int itemCount);
 void ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection);
+void SelectMenuItem(tScrollMenu *scrollMenu);
 
 #endif
