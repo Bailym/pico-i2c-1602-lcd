@@ -1,12 +1,12 @@
 #include "MainMenu.h"
 #include "TestScreen.h"
-#include "scroll-menu.h"
 #include "pico/stdlib.h"
 #include "screen-manager.h"
 
-static void MainMenu_SelectItemFour();
-
-static tScrollMenu mainMenu;
+static void MainMenu_SelectAdjustNumber()
+{
+    ScreenManager_InitScreen(&testScreen);
+}
 
 static tScrollMenuItem mainMenuItems[] =
     {
@@ -18,23 +18,10 @@ static tScrollMenuItem mainMenuItems[] =
 
 static const int mainMenuItemsCount = sizeof(mainMenuItems) / sizeof(mainMenuItems[0]);
 
-void MainMenu_Draw()
-{
-    InitMenu(&mainMenu, mainMenuItems, mainMenuItemsCount);
-}
+tScrollMenu mainMenu = {
+    .itemCount = mainMenuItemsCount,
+    .menuItems = mainMenuItems,
+    .selectedItemIndex = 0,
+};
 
-void MainMenu_Scroll(tScrollDirection scrollDirection)
-{
-    ScrollMenu(&mainMenu, scrollDirection);
-}
-
-void MainMenu_Select()
-{
-    SelectMenuItem(&mainMenu);
-}
-
-static void MainMenu_SelectAdjustNumber()
-{
-    ScreenManager_InitScreen(&testScreen);
-}
 

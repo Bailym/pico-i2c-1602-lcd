@@ -1,9 +1,8 @@
 #include "i2c.h"
 #include "pico-lcd.h"
-#include "scroll-menu.h"
+#include "menu-manager.h"
 #include "hardware/i2c.h"
 #include "MainMenu.h"
-#include "SubMenu.h"
 #include "TestScreen.h"
 #include "screen-manager.h"
 #include <stdio.h>
@@ -33,18 +32,19 @@ int main()
     char *lineOneMessage = "line 1";
     char *lineTwoMessage = "line 2";
 
-    MainMenu_Draw();
-
     while (1)
     {
+        mainMenu.selectedItemIndex = 0;
+        MenuManager_DrawMenu(&mainMenu);
         sleep_ms(1000);
-        MainMenu_Scroll(SCROLL_DOWN);
+        MenuManager_ScrollMenu(&mainMenu, SCROLL_DOWN);
         sleep_ms(1000);
-        MainMenu_Scroll(SCROLL_DOWN);
+        MenuManager_ScrollMenu(&mainMenu, SCROLL_DOWN);
         sleep_ms(1000);
-        MainMenu_Scroll(SCROLL_DOWN);
+        MenuManager_ScrollMenu(&mainMenu, SCROLL_DOWN);
         sleep_ms(1000);
-        MainMenu_Select();
+        MenuManager_SelectMenuItem(&mainMenu);
+        sleep_ms(1000);
 
         ScreenManager_ScrollUp(&testScreen);
         sleep_ms(1000);
@@ -65,6 +65,7 @@ int main()
         ScreenManager_ScrollDown(&testScreen);
         sleep_ms(1000);
         ScreenManager_ExitScreen(&testScreen);
+        sleep_ms(5000);
     }
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef SCROLL_MENU_H
-#define SCROLL_MENU_H
+#ifndef MENU_MANAGER_H
+#define MENU_MANAGER_H
 
 typedef struct
 {
@@ -21,8 +21,8 @@ typedef enum
     SCROLL_DOWN
 } tScrollDirection;
 
-void InitMenu(tScrollMenu *newScrollMenu, tScrollMenuItem menuItems[], int itemCount);
-void ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection);
-void SelectMenuItem(tScrollMenu *scrollMenu);
+void MenuManager_DrawMenu(tScrollMenu *scrollMenu);
+void MenuManager_ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection);
+void MenuManager_SelectMenuItem(tScrollMenu *scrollMenu);
 
 #endif

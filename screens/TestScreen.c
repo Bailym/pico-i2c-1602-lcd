@@ -41,7 +41,6 @@ static void TestScreen_Exit()
 static void TestScreen_Init()
 {
     counter = 0;
-    
     lcd_clear();
     lcd_set_cursor(0, 0);
     TestScreen_DrawScreenElements();

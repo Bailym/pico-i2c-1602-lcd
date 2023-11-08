@@ -22,10 +22,9 @@ pico_sdk_init()
 add_executable(PICO_I2C_1602_LCD_EXECUTABLE 
     ${PROJECT_SOURCE_DIR}/main.c
     ${LCD_LIBRARY_DIR}/pico-lcd.c
-    ${LCD_LIBRARY_DIR}/scroll-menu.c
+    ${LCD_LIBRARY_DIR}/menu-manager.c
     ${I2C_DIR}/i2c.c
     ${MENUS_DIR}/MainMenu.c
-    ${MENUS_DIR}/SubMenu.c
     ${LCD_LIBRARY_DIR}/screen-manager.c
     ${SCREENS_DIR}/TestScreen.c)
 
