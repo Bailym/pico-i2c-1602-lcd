@@ -98,7 +98,7 @@ void lcd_clear(void)
 }
 
 // go to location on LCD
-void lcd_set_cursor(int lineNumber, int linePosition)
+void lcd_set_cursor(tLineNumber lineNumber, int linePosition)
 {
     int firstLineStartAddress = 0x80;
     int secondLineStartAddress = 0xC0;
@@ -142,7 +142,7 @@ void lcd_init()
     lcd_clear();
 }
 
-static void set_cursor_for_alignment(int messageLength, int lineNumber, tTextAlignment textAlignment)
+static void set_cursor_for_alignment(int messageLength, tLineNumber lineNumber, tTextAlignment textAlignment)
 {
     switch (textAlignment)
     {
@@ -194,7 +194,7 @@ void lcd_write_two_line_message(char *messageToWrite[2], tTextAlignment textAlig
     }
 }
 
-void lcd_write_one_line_message(char *messageToWrite, int lineNumber, tTextAlignment textAlignment)
+void lcd_write_one_line_message(char *messageToWrite, tLineNumber lineNumber, tTextAlignment textAlignment)
 {
     int messageLength = strlen(messageToWrite);
     set_cursor_for_alignment(messageLength, lineNumber, textAlignment);

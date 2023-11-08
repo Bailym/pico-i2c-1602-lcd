@@ -4,6 +4,8 @@
 #include "hardware/i2c.h"
 #include "MainMenu.h"
 #include "SubMenu.h"
+#include "TestScreen.h"
+#include "screen-manager.h"
 #include <stdio.h>
 
 int main()
@@ -44,14 +46,25 @@ int main()
         sleep_ms(1000);
         MainMenu_Select();
 
+        ScreenManager_ScrollUp(&testScreen);
         sleep_ms(1000);
-        SubMenu_Scroll(SCROLL_DOWN);
+        ScreenManager_ScrollUp(&testScreen);
         sleep_ms(1000);
-        SubMenu_Scroll(SCROLL_DOWN);
+        ScreenManager_ScrollUp(&testScreen);
         sleep_ms(1000);
-        SubMenu_Scroll(SCROLL_DOWN);
+        ScreenManager_ScrollUp(&testScreen);
         sleep_ms(1000);
-        SubMenu_Select(); 
+        ScreenManager_ScrollUp(&testScreen);
+        sleep_ms(1000);
+        ScreenManager_SelectPress(&testScreen);
+        sleep_ms(1000);
+        ScreenManager_ScrollDown(&testScreen);
+        sleep_ms(1000);
+        ScreenManager_ScrollDown(&testScreen);
+        sleep_ms(1000);
+        ScreenManager_ScrollDown(&testScreen);
+        sleep_ms(1000);
+        ScreenManager_ExitScreen(&testScreen);
     }
 
 #endif

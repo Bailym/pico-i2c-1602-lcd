@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.12) # Require CMake 3.12 or newer
 set(I2C_DIR i2c/)
 set(LCD_LIBRARY_DIR lcd-library/)
 set(MENUS_DIR menus/)
+set(SCREENS_DIR screens/)
 
 # Include the Pico SDK CMake configuration
 include(pico_sdk_import.cmake)
@@ -24,13 +25,16 @@ add_executable(PICO_I2C_1602_LCD_EXECUTABLE
     ${LCD_LIBRARY_DIR}/scroll-menu.c
     ${I2C_DIR}/i2c.c
     ${MENUS_DIR}/MainMenu.c
-    ${MENUS_DIR}/SubMenu.c)
+    ${MENUS_DIR}/SubMenu.c
+    ${LCD_LIBRARY_DIR}/screen-manager.c
+    ${SCREENS_DIR}/TestScreen.c)
 
 
 # Directories to include in build
 include_directories(${I2C_DIR})
 include_directories(${LCD_LIBRARY_DIR})
 include_directories(${MENUS_DIR})
+include_directories(${SCREENS_DIR})
 
 # Pull in external dependencies and additional I2C hardware support
 target_link_libraries(PICO_I2C_1602_LCD_EXECUTABLE 
