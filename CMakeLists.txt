@@ -7,7 +7,6 @@ set(EXAMPLES_DIR examples/)
 set(MENUS_DIR ${EXAMPLES_DIR}/menus/)
 set(SCREENS_DIR ${EXAMPLES_DIR}/screens/)
 
-
 # Include the Pico SDK CMake configuration
 include(pico_sdk_import.cmake)
 
@@ -23,7 +22,7 @@ pico_sdk_init()
 # Add executable target
 add_executable(PICO_I2C_1602_LCD_EXECUTABLE 
     ${EXAMPLES_DIR}/MenuAndScreenExample.c
-    ${EXAMPLES_DIR}/BasicTextExample.c
+    #${EXAMPLES_DIR}/BasicTextExample.c
     ${LCD_LIBRARY_DIR}/pico-lcd.c
     ${LCD_LIBRARY_DIR}/menu-manager.c
     ${I2C_DIR}/i2c.c

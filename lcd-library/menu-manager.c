@@ -1,9 +1,8 @@
 #include "menu-manager.h"
 #include "pico-lcd.h"
 
-void MenuManager_DrawMenu(tScrollMenu *scrollMenu)
+static void DrawCurrentAndNextMenuItems(tScrollMenu *scrollMenu)
 {
-    lcd_clear();
     int selectedMenuItemIndex = scrollMenu->selectedItemIndex;
     char *selectedMenuItemText = scrollMenu->menuItems[selectedMenuItemIndex].itemText;
     lcd_write_one_line_message(">", 0, LEFT_ALIGN);
@@ -14,15 +13,33 @@ void MenuManager_DrawMenu(tScrollMenu *scrollMenu)
     {
         nextMenuItemIndex = 0;
     }
+
     char *nextMenuItemText = scrollMenu->menuItems[nextMenuItemIndex].itemText;
     lcd_write_one_line_message(nextMenuItemText, 1, LEFT_ALIGN);
 }
 
-void MenuManager_ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection)
+static void CallSpecificDrawMenuFunctionIfSet(tScrollMenu *scrollMenu)
+{
+    if (scrollMenu->onMenuDrawn != NULL)
+    {
+        scrollMenu->onMenuDrawn();
+    }
+}
+
+void MenuManager_DrawMenu(tScrollMenu *scrollMenu)
+{
+    lcd_clear();
+    DrawCurrentAndNextMenuItems(scrollMenu);
+    CallSpecificDrawMenuFunctionIfSet(scrollMenu);
+}
+
+static void ScrollMenuInGivenDirection(tScrollMenu *scrollMenu, tScrollDirection scrollDirection)
 {
     if (scrollDirection == SCROLL_DOWN)
     {
-        if (scrollMenu->selectedItemIndex == scrollMenu->itemCount - 1)
+        bool isLastItem = scrollMenu->selectedItemIndex == scrollMenu->itemCount - 1;
+
+        if (isLastItem)
         {
             scrollMenu->selectedItemIndex = 0;
         }
@@ -33,7 +50,9 @@ void MenuManager_ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDire
     }
     else
     {
-        if (scrollMenu->selectedItemIndex == 0)
+        bool isFirstItem = scrollMenu->selectedItemIndex == 0;
+
+        if (isFirstItem)
         {
             scrollMenu->selectedItemIndex = scrollMenu->itemCount - 1;
         }
@@ -42,17 +61,40 @@ void MenuManager_ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDire
             scrollMenu->selectedItemIndex--;
         }
     }
+}
 
+static void CallSpecificScrollMenuFunctionIfSet(tScrollMenu *scrollMenu)
+{
+    if (scrollMenu->onMenuScrolled != NULL)
+    {
+        scrollMenu->onMenuScrolled();
+    }
+}
+
+void MenuManager_ScrollMenu(tScrollMenu *scrollMenu, tScrollDirection scrollDirection)
+{
+    ScrollMenuInGivenDirection(scrollMenu, scrollDirection);
+    CallSpecificScrollMenuFunctionIfSet(scrollMenu);
     MenuManager_DrawMenu(scrollMenu);
+}
+
+void CallSpecificOnMenuItemSelectedFunctionsIfSet(tScrollMenu *scrollMenu, tScrollMenuItem *selectedMenuItem)
+{
+
+    if (selectedMenuItem->onThisItemSelected != NULL)
+    {
+        selectedMenuItem->onThisItemSelected();
+    }
+
+    if (scrollMenu->onMenuItemSelected != NULL)
+    {
+        scrollMenu->onMenuItemSelected();
+    }
 }
 
 void MenuManager_SelectMenuItem(tScrollMenu *scrollMenu)
 {
     int selectedMenuItemIndex = scrollMenu->selectedItemIndex;
     tScrollMenuItem *selectedMenuItem = &scrollMenu->menuItems[selectedMenuItemIndex];
-
-    if (selectedMenuItem->onSelect != NULL)
-    {
-        selectedMenuItem->onSelect();
-    }
+    CallSpecificOnMenuItemSelectedFunctionsIfSet(scrollMenu, selectedMenuItem);
 }
