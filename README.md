@@ -30,6 +30,6 @@ The GIF shows an example where:
 
 **Note that this library only covers the LCD implementation and not any buttons/encoders you might use to control the LCD.**
 
-[https://github.com/Bailym/pico-i2c-1602-lcd/blob/main/examples/demo.gif](https://github.com/Bailym/pico-i2c-1602-lcd/blob/main/examples/demo.gif?raw=true)
+[Example Interface](https://github.com/Bailym/pico-i2c-1602-lcd/blob/main/examples/demo.gif)
 
 
